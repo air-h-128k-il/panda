@@ -134,7 +134,7 @@ dnl checking for recdefgen
 dnl ***************************************************************************
 PKG_CHECK_MODULES(RECDEFGEN,
 [
-	libglade-panda-2.0	>= 2.0.3
+	libglade-panda-2.0	>= 2.0.0
 	gmodule-2.0			>= 2.0.0
 ])
 
@@ -147,7 +147,7 @@ AC_ARG_ENABLE(client,
 if test "x$enable_client" = "xyes"; then
 	PKG_CHECK_MODULES(GLCLIENT,
 	[
-		libglade-panda-2.0	>= 2.0.3
+		libglade-panda-2.0	>= 2.0.0
 		gtkpanda2			>= 2.0.6
 		libcurl             >= 7.0.5
 		gmodule-2.0			>= 2.0.0
@@ -158,7 +158,7 @@ if test "x$enable_client" = "xyes"; then
 	PKG_CHECK_MODULES(LIBGTKCHECK, libglade-panda-2.0 >= 3.0.0,
 	[AC_DEFINE(LIBGTK_3_0_0,1,"")],
 	[
-		PKG_CHECK_MODULES(LIBGTKCHECK,libglade-panda-2.0 >= 2.0.3,
+		PKG_CHECK_MODULES(LIBGTKCHECK,libglade-panda-2.0 >= 2.0.0,
 		[])
 	])
 

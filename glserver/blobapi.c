@@ -106,18 +106,18 @@ extern void GetBlobAPI(HTTP_REQUEST *req, HTTP_RESPONSE *res) {
 
   snprintf(tempdir, PATH_MAX, "/tmp/blobapi_XXXXXX");
   if (!mkdtemp(tempdir)) {
-    Error("mkdtemp: %s", strerror(errno));
+    //Error("mkdtemp: %s", strerror(errno));//surpress error
   }
   snprintf(tempsocket, PATH_MAX, "%s/%s", tempdir, "blobapi");
   cmd = BIN_DIR "/" MONBLOBCMD;
   if ((pid = fork()) < 0) {
-    Error("fork: %s", strerror(errno));
+    //Error("fork: %s", strerror(errno));
   }
   if (pid == 0) {
     /* child */
     if (execl(cmd, MONBLOBCMD, "-export", req->session_id, "-socket",
               tempsocket, NULL) < 0) {
-      Error("execl: %s:%s", strerror(errno), cmd);
+      //Error("execl: %s:%s", strerror(errno), cmd);
     }
   }
   /* parent */
